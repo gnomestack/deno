@@ -1,8 +1,5 @@
 {
     "imports": {
-        "sdk": "./sdk",
-        "cli": "./sdk/cli",
-        "commands": "./commands",
-        "fs": "./sdk/fs"
+        "https://x.nest.land/gnomestack-std@0.0.1/": "./std/"
     }
 }

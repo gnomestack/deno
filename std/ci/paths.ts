@@ -1,6 +1,6 @@
 import { get } from "../os/env.ts";
 import { fromFileUrl, join } from "../path/mod.ts";
-import { cwd } from "../process/mod.ts";
+import { cwd } from "../ps/mod.ts";
 // function state
 let rootDirPath: string | undefined = undefined;
 let artifactsDirPath: string | undefined = undefined;

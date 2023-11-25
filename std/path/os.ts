@@ -1,4 +1,4 @@
-import { IS_WINDOWS } from "../mod.ts";
+import { IS_WINDOWS } from "../os/constants.ts";
 import { get } from "../os/env.ts";
 import { homeDir } from "../os/os.ts";
 import { join } from "./mod.ts";
