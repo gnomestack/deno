@@ -1,5 +1,4 @@
-export enum AnsiMode
-{
+export enum AnsiMode {
     Auto = -1,
     None = 0,
     ThreeBit = 1,
@@ -8,8 +7,7 @@ export enum AnsiMode
     TwentyFourBit = 8,
 }
 
-export enum AnsiLogLevel
-{
+export enum AnsiLogLevel {
     None = 0,
     Critical = 2,
     Error = 3,

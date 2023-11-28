@@ -9,7 +9,6 @@ import { ISplatOptions } from "./interfaces.ts";
 const match = (array: unknown[], value: string) =>
     array.some((element) => (element instanceof RegExp ? element.test(value) : element === value));
 
-
 /**
  * Converts an object to an array of command line arguments.
  * @param object The object to convert

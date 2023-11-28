@@ -1,38 +1,6 @@
-import { 
-    rgb24 as rgb24v2, 
-    rgb8 as rgb8v2, 
-    bgRgb24 as bgRgb24v2, 
-    bgRgb8 as bgRgb8v2, 
-    bold as bold2,
-    italic as italic2,
-    underline as underline2,
-    strikethrough as strikethrough2,
-    dim as dim2,
-    red as red2, 
-    black as black2, 
-    gray as gray2,
-    blue as blue2,
-    cyan as cyan2,
-    green as green2,
-    magenta as magenta2,  
-    white as white2,
-    yellow as yellow2,
-    brightBlack as brightBlack2,
-    brightBlue as brightBlue2,
-    brightCyan as brightCyan2,
-    brightGreen as brightGreen2,
-    brightMagenta as brightMagenta2,
-    brightRed as brightRed2,
-    brightWhite as brightWhite2,
-    brightYellow as brightYellow2,
+import {
     bgBlack as bgBlack2,
     bgBlue as bgBlue2,
-    bgCyan as bgCyan2,
-    bgGreen as bgGreen2,
-    bgMagenta as bgMagenta2,
-    bgRed as bgRed2,
-    bgWhite as bgWhite2,
-    bgYellow as bgYellow2,
     bgBrightBlack as bgBrightBlack2,
     bgBrightBlue as bgBrightBlue2,
     bgBrightCyan as bgBrightCyan2,
@@ -41,11 +9,42 @@ import {
     bgBrightRed as bgBrightRed2,
     bgBrightWhite as bgBrightWhite2,
     bgBrightYellow as bgBrightYellow2,
-   
+    bgCyan as bgCyan2,
+    bgGreen as bgGreen2,
+    bgMagenta as bgMagenta2,
+    bgRed as bgRed2,
+    bgRgb24 as bgRgb24v2,
+    bgRgb8 as bgRgb8v2,
+    bgWhite as bgWhite2,
+    bgYellow as bgYellow2,
+    black as black2,
+    blue as blue2,
+    bold as bold2,
+    brightBlack as brightBlack2,
+    brightBlue as brightBlue2,
+    brightCyan as brightCyan2,
+    brightGreen as brightGreen2,
+    brightMagenta as brightMagenta2,
+    brightRed as brightRed2,
+    brightWhite as brightWhite2,
+    brightYellow as brightYellow2,
+    cyan as cyan2,
+    dim as dim2,
+    gray as gray2,
+    green as green2,
+    italic as italic2,
+    magenta as magenta2,
+    red as red2,
+    rgb24 as rgb24v2,
+    rgb8 as rgb8v2,
+    strikethrough as strikethrough2,
+    underline as underline2,
+    white as white2,
+    yellow as yellow2,
 } from "../deps.ts";
-    import { AnsiSettings } from "./ansi-settings.ts";
+import { AnsiSettings } from "./ansi-settings.ts";
 
-export type Rgb = { r: number, g: number, b: number };
+export type Rgb = { r: number; g: number; b: number };
 
 export function rgb8(str: string, color: number) {
     if (AnsiSettings.current.mode === 0) {
@@ -62,7 +61,6 @@ export function rgb24(str: string, color: number | Rgb) {
 
     return rgb24v2(str, color);
 }
-
 
 export function bgRgb8(str: string, color: number) {
     if (AnsiSettings.current.mode === 0) {
@@ -120,7 +118,6 @@ export function italic(str: string) {
     return italic2(str);
 }
 
-
 export function underline(str: string) {
     if (AnsiSettings.current.mode === 0) {
         return str;
@@ -144,7 +141,6 @@ export function blue(str: string) {
 
     return blue2(str);
 }
-
 
 export function cyan(str: string) {
     if (AnsiSettings.current.mode === 0) {
@@ -321,7 +317,6 @@ export function bgBrightBlack(str: string) {
 
     return bgBrightBlack2(str);
 }
-
 
 export function bgBrightBlue(str: string) {
     if (AnsiSettings.current.mode === 0) {

@@ -1,4 +1,4 @@
-import { CHAR_UNDERSCORE } from "../text/char_constants.ts";
+import { CHAR_UNDERSCORE } from "../text/char-constants.ts";
 import { IS_DENO, IS_NODELIKE } from "../runtime/mod.ts";
 import { equalsIgnoreCase } from "../text/str.ts";
 import { StringBuilder } from "../text/string_builder.ts";

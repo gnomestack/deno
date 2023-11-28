@@ -3,7 +3,6 @@ import * as env from "../os/env.ts";
 import { equalsIgnoreCase, startsWithIgnoreCase } from "../text/str.ts";
 import { AnsiMode } from "./enums.ts";
 
-
 function isTermVariableAnsiCompatible() {
     const set = [
         "^xterm",
@@ -18,7 +17,7 @@ function isTermVariableAnsiCompatible() {
         "^vt220",
         "^vt220",
         "^vt320",
-        "^screen"
+        "^screen",
     ];
 
     const term = env.get("TERM");
@@ -65,17 +64,15 @@ function detectCi() {
 
     const teamCityVersion = env.get("TEAMCITY_VERSION");
     if (teamCityVersion) {
-        return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(teamCityVersion) ? AnsiMode.FourBit: AnsiMode.None;
+        return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(teamCityVersion) ? AnsiMode.FourBit : AnsiMode.None;
     }
 
     return null;
 }
 
 export function detectMode() {
-
     const gsterm = env.get("GNOMESTACK_TERM");
-    if (gsterm && gsterm.length)
-    {
+    if (gsterm && gsterm.length) {
         switch (gsterm) {
             case "none":
             case "no-color":
@@ -110,8 +107,7 @@ export function detectMode() {
     }
 
     const ci = detectCi();
-    if (ci !== null)
-    {
+    if (ci !== null) {
         return ci;
     }
 
@@ -122,18 +118,17 @@ export function detectMode() {
     if (term === "xterm-kitty") {
         return AnsiMode.TwentyFourBit;
     }
-    
-    if (IS_DARWIN)
-    {
+
+    if (IS_DARWIN) {
         const termProgram = env.get("TERM_PROGRAM");
         if (termProgram !== undefined) {
             const version = Number.parseInt((env.get("TERM_PROGRAM_VERSION") || "").split(".")[0], 10);
-    
+
             switch (termProgram) {
                 case "iTerm.app": {
                     return version >= 3 ? AnsiMode.TwentyFourBit : AnsiMode.EightBit;
                 }
-    
+
                 case "Apple_Terminal": {
                     return AnsiMode.EightBit;
                 }
@@ -142,8 +137,7 @@ export function detectMode() {
         }
     }
 
-    if (term)
-    {
+    if (term) {
         if (/-256(color)?$/i.test(term)) {
             return AnsiMode.EightBit;
         }
@@ -157,11 +151,9 @@ export function detectMode() {
         return AnsiMode.FourBit;
     }
 
-    if (IS_WINDOWS)
-    {
+    if (IS_WINDOWS) {
         const conEmu = env.get("ConEmuANSI");
-        if (conEmu && conEmu.length)
-        {
+        if (conEmu && conEmu.length) {
             switch (conEmu) {
                 case "ON":
                 case "on":
@@ -181,6 +173,3 @@ export function detectMode() {
 
     return AnsiMode.None;
 }
-
-
-

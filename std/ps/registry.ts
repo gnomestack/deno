@@ -1,9 +1,8 @@
 import { isFile, isFileSync } from "../fs/fs.ts";
-import { IS_DARWIN, IS_WINDOWS, expand, get } from "../os/mod.ts";
+import { expand, get, IS_DARWIN, IS_WINDOWS } from "../os/mod.ts";
 import { isAbsolute } from "../path/mod.ts";
 import { underscore } from "../text/inflections.ts";
 import { which, whichSync } from "./which.ts";
-
 
 export interface IPathFinderOptions {
     name: string;

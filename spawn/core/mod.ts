@@ -1,27 +1,26 @@
 export {
     chmod,
     chmodSync,
-    exists,
-    existsSync,
     exec,
     execSync,
+    exists,
+    existsSync,
     findExe,
     findExeSync,
-    registerExe,
-    rm, 
-    rmSync,
-    splat,
+    IS_DARWIN,
+    IS_WINDOWS,
     makeTempFile,
     makeTempFileSync,
+    registerExe,
+    rm,
+    rmSync,
+    splat,
     writeTextFile,
     writeTextFileSync,
-    IS_WINDOWS,
-    IS_DARWIN,
 } from "../deps.ts";
 export type { IExecOptions, IExecSyncOptions, PsOutput } from "../deps.ts";
 
 import { makeTempFile, makeTempFileSync, writeTextFile, writeTextFileSync } from "../deps.ts";
-
 
 export function generateScriptFileSync(script: string, ext: string, tpl?: string) {
     const scriptFile = makeTempFileSync({ prefix: "quasar_scripts", suffix: ext });

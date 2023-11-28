@@ -1,1 +1,1 @@
-export * from "https://x.nest.land/gnomestack-std@0.0.1/testing/mod.ts";
+export * from "https://x.nest.land/gs-std@0.0.1/testing/mod.ts";

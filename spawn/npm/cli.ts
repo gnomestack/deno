@@ -1,12 +1,4 @@
-
-import { 
-    cwd, 
-    join, 
-    isDirectory, 
-    isDirectorySync,
-    which, 
-    whichSync 
- } from "../deps.ts";
+import { cwd, isDirectory, isDirectorySync, join, which, whichSync } from "../deps.ts";
 import {
     exec,
     execSync,

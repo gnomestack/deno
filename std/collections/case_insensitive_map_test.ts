@@ -1,5 +1,5 @@
 import { assert, test } from "../testing/mod.ts";
-import { CaseInsensitiveMap } from "./case_insensitive_map.ts";
+import { CaseInsensitiveMap } from "./case-insensitive-map.ts";
 
 test("CaseInsensitiveMap", () => {
     const map = new CaseInsensitiveMap<string>();

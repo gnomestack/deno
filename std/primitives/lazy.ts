@@ -1,5 +1,3 @@
-
-
 export class Lazy<T> {
     #value: T | undefined;
     #fn: () => T;

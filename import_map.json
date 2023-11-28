@@ -1,5 +1,6 @@
 {
     "imports": {
-        "https://x.nest.land/gnomestack-std@0.0.1/": "./std/"
+        "https://x.nest.land/gs-std@0.0.1/": "./std/",
+        "https://x.nest.land/gs-spawn@0.0.1/": "./spawn/"
     }
 }

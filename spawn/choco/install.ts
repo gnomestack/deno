@@ -1,5 +1,5 @@
-import { scriptRunner } from "../core/script_runner.ts";
-import { set, IS_WINDOWS, PlatformNotSupportedError, which } from "../deps.ts";
+import { scriptRunner } from "../core/script-runner.ts";
+import { IS_WINDOWS, PlatformNotSupportedError, set, which } from "../deps.ts";
 
 /**
  * installs chocolatey

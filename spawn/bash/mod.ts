@@ -1,6 +1,19 @@
-
 import { IExecOptions, IExecSyncOptions, registerExe } from "../core/mod.ts";
-import { ExecArgs, IS_WINDOWS, ISplatOptions, chmod, chmodSync, exists, existsSync, findExe, findExeSync, rm, rmSync, shell, whichSync } from "../deps.ts";
+import {
+    chmod,
+    chmodSync,
+    ExecArgs,
+    exists,
+    existsSync,
+    findExe,
+    findExeSync,
+    IS_WINDOWS,
+    ISplatOptions,
+    rm,
+    rmSync,
+    shell,
+    whichSync,
+} from "../deps.ts";
 import { generateScriptFile, generateScriptFileSync } from "../mod.ts";
 
 let exe = "bash";
@@ -16,32 +29,33 @@ registerExe("bash", {
     ],
 });
 
-const splatArgs : ISplatOptions = {
+const splatArgs: ISplatOptions = {
     shortFlag: true,
     appendArguments: true,
-}
+};
 
 /**
  * Gets or sets the location of the bash executable.
- * 
+ *
  * @param path optional. The path to the bash executable.
  * @returns the bash location
  */
 export function location(path?: string) {
-    if (path)
+    if (path) {
         exe = path;
+    }
 
     return whichSync(exe);
 }
 
 /**
  * Executes a bash command.
- * 
+ *
  * @example
  * ```ts
  * exec(["-c", "echo hello world"]);
  * ```
- * 
+ *
  * @param args The arguments to pass to bash.
  * @param options The options to use.
  * @returns The output of the command.
@@ -59,7 +73,6 @@ export function execSync(args: ExecArgs, options?: IExecSyncOptions) {
 
     return shell.execSync(exe, args, options);
 }
-
 
 export function capture(args?: ExecArgs, options?: IExecOptions) {
     const o = options ?? {};

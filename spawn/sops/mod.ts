@@ -1,6 +1,15 @@
 import { cli, cliSync } from "./cli.ts";
 import { exec, exists, existsSync, IExecOptions, IExecSyncOptions } from "../core/mod.ts";
-import { homeDir, IS_DARWIN, dirname, join, homeConfigDir, ensureDirectory, readTextFile, writeTextFile  } from "../deps.ts";
+import {
+    dirname,
+    ensureDirectory,
+    homeConfigDir,
+    homeDir,
+    IS_DARWIN,
+    join,
+    readTextFile,
+    writeTextFile,
+} from "../deps.ts";
 
 export function sops(args: string[], options?: IExecOptions) {
     return cli(args, options);

@@ -1,7 +1,7 @@
 import { handlebars } from "./deps.ts";
-import { envHelpers } from "./env_helpers.ts";
-import { stringHelpers } from "./string_helpers.ts";
-import { typeHelpers } from "./type_helpers.ts";
+import { envHelpers } from "./env-helpers.ts";
+import { stringHelpers } from "./string-helpers.ts";
+import { typeHelpers } from "./type-helpers.ts";
 
 export { envHelpers, handlebars, stringHelpers, typeHelpers };
 

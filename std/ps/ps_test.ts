@@ -65,7 +65,7 @@ test.when(hasRun, "output: success with capture pipe", async () => {
 
 test.when(hasRun && hasEnv, "output: failure with inherit & different cwd", async () => {
     const home = get(HOME_VAR_NAME);
-    const { code, args } = await exec("git", "status -s", { 
+    const { code, args } = await exec("git", "status -s", {
         stdout: "inherit",
         stderr: "inherit",
         cwd: home,
@@ -76,7 +76,7 @@ test.when(hasRun && hasEnv, "output: failure with inherit & different cwd", asyn
 
 test.when(hasRun && hasEnv, "output: failure with piped & different cwd", async () => {
     const home = get(HOME_VAR_NAME);
-    const { code, stderrText } = await exec("git", ["status", "-s"], { 
+    const { code, stderrText } = await exec("git", ["status", "-s"], {
         stdout: "piped",
         stderr: "piped",
         cwd: home,
@@ -103,8 +103,7 @@ test.when(hasRun, "outputSync: success with capture pipe", () => {
 });
 
 test.when(hasRun && !IS_WINDOWS, "ps: can pipe", async () => {
-    const result = await 
-        ps("echo", "my test")
+    const result = await ps("echo", "my test")
         .pipe("grep", "test")
         .pipe("cat")
         .output();
@@ -119,10 +118,9 @@ test.when(hasRun && !IS_WINDOWS, "exec: can pipe", async () => {
 });
 
 test.when(hasRun && !IS_WINDOWS, "capture: splat", async () => {
-    const result = await capture("echo", { text: "hello"}, { splat: { arguments: ["text"] } });
+    const result = await capture("echo", { text: "hello" }, { splat: { arguments: ["text"] } });
     assert.equals(result.code, 0);
     assert.equals(result.stdoutText, "hello\n");
-
 });
 
 test.when(hasRun && hasEnv, "outputSync: failure with inherit & different cwd", () => {

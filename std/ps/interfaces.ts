@@ -1,4 +1,3 @@
-
 export type Signal =
     | "SIGABRT"
     | "SIGALRM"
@@ -34,7 +33,6 @@ export type Signal =
     | "SIGWINCH"
     | "SIGXCPU"
     | "SIGXFSZ";
-
 
 export interface IPsOutput {
     /**
@@ -100,7 +98,7 @@ export interface IPsOutput {
      * is to throw if the exit code is not 0.
      * @param validator The validator to use to determine whether to throw or continue.
      */
-    throwOrContinue(validator?: (code: number) => boolean): IPsOutput
+    throwOrContinue(validator?: (code: number) => boolean): IPsOutput;
 }
 
 export interface ICommandStatus {
@@ -135,7 +133,7 @@ export interface ICommandOutput {
 /**
  * The standard stream options (`"inherit"` | `"piped"` | `"null"`) for stdin, stdout, stderr
  * streams.
- * 
+ *
  * * `"inherit"` - The stream is inherited from the parent process.
  * * `"piped"` - The stream is piped to the parent process.
  * * `"null"` - The stream is ignored.
@@ -208,7 +206,6 @@ export interface IPsOutputArgs {
     end?: Date;
 }
 
-
 export interface IPsStartInfo extends ICommandOptions {
     /**
      * The spawned executable file.
@@ -222,7 +219,6 @@ export interface IPsStartInfo extends ICommandOptions {
 }
 
 export interface IPsCommand {
-
     /**
      * Creates a child process instance which allows more
      * control over the spawned process.
@@ -242,12 +238,10 @@ export interface IPsCommand {
 }
 
 export interface IPipe {
-    pipe(name: string, args?: ExecArgs, options?: IExecOptions) : IPipe
-    pipe(next: IChildProcess | IPsCommand | IPsOutput) : IPipe
+    pipe(name: string, args?: ExecArgs, options?: IExecOptions): IPipe;
+    pipe(next: IChildProcess | IPsCommand | IPsOutput): IPipe;
     output(): Promise<IPsOutput>;
 }
-
-
 
 export interface IChildProcess {
     /**
@@ -295,15 +289,15 @@ export interface IChildProcess {
      * ps("git", "status")
      * .pipe(ps("grep", "modified"))
      * .then(grep => grep.pipe(ps("tee", ["path/to/file"])))
-     * 
+     *
      * // or
-     * 
+     *
      * const grep = await ps("git", "status").pipe(ps("grep", "modified"))
      * grep.pipe(ps("tee", ["path/to/file"]))
-     * 
+     *
      * ```
      */
-    pipe(next: IChildProcess | IPsCommand) : IPipe;
+    pipe(next: IChildProcess | IPsCommand): IPipe;
 
     output(): Promise<IPsOutput>;
 
@@ -410,7 +404,7 @@ export interface IExecSyncOptions {
      * is ignored on non-windows platforms. Defaults to `false`. */
     windowsRawArguments?: boolean;
 
-    splat?: ISplatOptions
+    splat?: ISplatOptions;
 }
 
 export interface IExecOptions extends IExecSyncOptions {
@@ -429,4 +423,4 @@ export interface IExecOptions extends IExecSyncOptions {
     input?: string | Uint8Array | ReadableStream<Uint8Array>;
 }
 
-export type ExecArgs = string | string[] | Record<string, unknown>
+export type ExecArgs = string | string[] | Record<string, unknown>;

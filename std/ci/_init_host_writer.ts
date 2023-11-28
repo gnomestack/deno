@@ -1,6 +1,6 @@
 export * from "./constants.ts";
 import { get, set } from "../os/env.ts";
-import { handleArguments, ansiWriter, IAnsiWriter, AnsiLogLevel } from "../fmt/ansi-writer.ts";
+import { AnsiLogLevel, ansiWriter, handleArguments, IAnsiWriter } from "../fmt/ansi-writer.ts";
 import { isGithub, isTfBuild } from "./constants.ts";
 import { writeTextFileSync } from "../fs/fs.ts";
 import { sprintf } from "../deps.ts";

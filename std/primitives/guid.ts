@@ -8,10 +8,10 @@ const emptyGuid = new Lazy<Guid>(() => new Guid(emptyValue));
 export class Guid {
     #value: string;
 
-    constructor(value: string)
-    constructor()
+    constructor(value: string);
+    constructor();
     constructor() {
-        if (arguments.length == 1 && typeof arguments[0]  === 'string') {
+        if (arguments.length == 1 && typeof arguments[0] === "string") {
             if (!uuidV4.validate(arguments[0])) {
                 throw new Error("Invalid Guid");
             }
@@ -34,11 +34,11 @@ export class Guid {
         return new Guid();
     }
 
-    static parse(value: string) : Guid {
+    static parse(value: string): Guid {
         if (!uuidV4.validate(value)) {
             throw new Error(`Invalid Guid ${value}`);
         }
-        
+
         return new Guid(value);
     }
 }

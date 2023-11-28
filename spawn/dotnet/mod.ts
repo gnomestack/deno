@@ -7,7 +7,7 @@ import {
     IDotNetRestoreArgs,
     IDotNetTestArgs,
 } from "./interfaces.ts";
-import { splat, getOrDefault, isCi } from "../deps.ts";
+import { getOrDefault, isCi, splat } from "../deps.ts";
 
 export function dotnet(args: string[], options?: IExecOptions) {
     return cli(args, options);

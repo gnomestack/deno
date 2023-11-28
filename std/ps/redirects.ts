@@ -8,15 +8,15 @@ export interface IPsCapture {
 
 export class WritableStreamCapture implements IPsCapture {
     #writer: WritableStreamDefaultWriter<Uint8Array>;
-    
+
     constructor(stream: WritableStream<Uint8Array>) {
         this.#writer = stream.getWriter();
     }
-    
+
     next(data: Uint8Array): void {
         this.#writer.write(data);
     }
-    
+
     complete(): Promise<void> {
         this.#writer.close();
         return this.#writer.closed;
@@ -24,7 +24,7 @@ export class WritableStreamCapture implements IPsCapture {
 }
 
 export class StringArrayCapture implements IPsCapture {
-    #builder: StringBuilder
+    #builder: StringBuilder;
 
     constructor(private readonly array: string[]) {
         this.#builder = new StringBuilder();
@@ -38,7 +38,7 @@ export class StringArrayCapture implements IPsCapture {
         const p = new Promise<void>((resolve) => {
             const results = this.#builder.toString().split(NEW_LINE);
             this.#builder.clear();
-            for(const result of results) {
+            for (const result of results) {
                 this.array.push(result);
             }
 

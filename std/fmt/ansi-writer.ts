@@ -5,7 +5,7 @@ import { blue, cyan, gray, green, magenta, red, sprintf, yellow } from "../deps.
 import { secretMasker } from "../secrets/masker.ts";
 import { AnsiLogLevel } from "./enums.ts";
 
-export { AnsiLogLevel, AnsiSettings }
+export { AnsiLogLevel, AnsiSettings };
 
 function handleStack(stack?: string) {
     stack = stack ?? "";
