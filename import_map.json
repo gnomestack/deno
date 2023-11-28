@@ -1,8 +1,6 @@
 {
     "imports": {
-        "sdk": "./sdk",
-        "cli": "./sdk/cli",
-        "commands": "./commands",
-        "fs": "./sdk/fs"
+        "https://x.nest.land/gs-std@0.0.1/": "./std/",
+        "https://x.nest.land/gs-spawn@0.0.1/": "./spawn/"
     }
 }

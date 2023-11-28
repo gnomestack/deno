@@ -1,0 +1,34 @@
+vault:
+  kind: keepass
+
+secrets:
+  - path: path/to/secret
+    name: VALUE
+
+env:
+  NAME: ${VALUE:-default}
+
+tasks:
+  test:
+    run: |
+      echo '{{ secrets.VALUE }}'
+    shell: pwsh
+  
+  test2:
+    run: |
+      echo '{{ secrets.VALUE }}'
+    remote:
+      kind: native
+      identity: ~/.ssh/id_rsa
+      targets: 
+        - user@host
+
+    
+    
+
+jobs:
+  test:
+    name: Test
+    tasks:
+      - use: test
+    
