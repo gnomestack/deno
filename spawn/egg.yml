@@ -3,16 +3,17 @@ name: gs-spawn
 entry: ./mod.ts
 description: GnomeStack spawn. Run common cli tools idomatically in typescript
 homepage: 'https://gnomestack.github.io/docs/stacks/deno/spawn'
-version: 0.0.2
+version: 0.0.3
 releaseType: patch
 unstable: false
 unlisted: false
-files: 
+files:
   - '**/**/**/*.ts'
-  - "README.md" 
-  - "LICENSE.md"
+  - README.md
+  - LICENSE.md
 ignore: []
 checkFormat: true
 checkTests: true
 checkInstallation: true
 check: true
+checkAll: true
