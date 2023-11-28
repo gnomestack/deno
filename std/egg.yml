@@ -3,13 +3,14 @@ name: gs-std
 entry: ./mod.ts
 description: GnomeStack Standard Library for Deno
 homepage: 'https://gnomestack.github.io/docs/stacks/deno/std'
-version: 0.0.0
+version: 0.0.1
 releaseType: patch
 unstable: false
 unlisted: false
-files: []
+files: ["**/*.ts", "README.md", "LICENSE.md"]
 ignore: []
 checkFormat: false
 checkTests: false
 checkInstallation: false
 check: true
+checkAll: true
