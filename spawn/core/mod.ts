@@ -18,7 +18,7 @@ export {
     writeTextFile,
     writeTextFileSync,
 } from "../deps.ts";
-export type { IExecOptions, IExecSyncOptions, PsOutput } from "../deps.ts";
+export type { IExecOptions, IExecSyncOptions, ISplatOptions, PsOutput } from "../deps.ts";
 
 import { makeTempFile, makeTempFileSync, writeTextFile, writeTextFileSync } from "../deps.ts";
 

@@ -7,14 +7,32 @@ import {
     IDotNetRestoreArgs,
     IDotNetTestArgs,
 } from "./interfaces.ts";
-import { getOrDefault, isCi, splat } from "../deps.ts";
+import { getOrDefault, isCi, ISplatOptions, splat } from "../deps.ts";
 
-export function dotnet(args: string[], options?: IExecOptions) {
-    return cli(args, options);
+export function dotnet(args: string[] | Record<string, unknown>, options?: IExecOptions) {
+    if (Array.isArray(args)) {
+        return cli(args, options);
+    }
+
+    let o: ISplatOptions | undefined = undefined;
+    if (args["splatOptions"]) {
+        o = args["splatOptions"];
+    }
+
+    return cli(splat(args, o), options);
 }
 
-export function dotnetSync(args: string[], options?: IExecSyncOptions) {
-    return cliSync(args, options);
+export function dotnetSync(args: string[] | Record<string, unknown>, options?: IExecSyncOptions) {
+    if (Array.isArray(args)) {
+        return cliSync(args, options);
+    }
+
+    let o: ISplatOptions | undefined = undefined;
+    if (args["splatOptions"]) {
+        o = args["splatOptions"];
+    }
+
+    return cliSync(splat(args, o), options);
 }
 
 let buildConfigValue: DotNetBuildConfig | string | undefined;

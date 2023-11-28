@@ -1,0 +1,11 @@
+import { exec, execSync, IExecOptions, IExecSyncOptions, registerExe } from "../../core/mod.ts";
+
+registerExe("wget", {});
+
+export function cli(args?: string[], options?: IExecOptions) {
+    return exec("wget", args, options);
+}
+
+export function cliSync(args?: string[], options?: IExecSyncOptions) {
+    return execSync("wget", args, options);
+}

@@ -1,10 +1,28 @@
 import { cli, cliSync } from "./cli.ts";
-import { IExecOptions, IExecSyncOptions } from "../core/mod.ts";
+import { IExecOptions, IExecSyncOptions, ISplatOptions, splat } from "../core/mod.ts";
 
-export function sh(args: string[], options?: IExecOptions) {
-    return cli(args, options);
+export function sh(args: string[] | Record<string, unknown>, options?: IExecOptions) {
+    if (Array.isArray(args)) {
+        return cli(args, options);
+    }
+
+    let o: ISplatOptions | undefined = undefined;
+    if (args["splatOptions"]) {
+        o = args["splatOptions"];
+    }
+
+    return cli(splat(args, o), options);
 }
 
-export function shSync(args: string[], options?: IExecSyncOptions) {
-    return cliSync(args, options);
+export function shSync(args: string[] | Record<string, unknown>, options?: IExecSyncOptions) {
+    if (Array.isArray(args)) {
+        return cliSync(args, options);
+    }
+
+    let o: ISplatOptions | undefined = undefined;
+    if (args["splatOptions"]) {
+        o = args["splatOptions"];
+    }
+
+    return cliSync(splat(args, o), options);
 }
